@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap components</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+<style>
+
+    .alert {
+        visibility: hidden;
+        max-width: 300px;
+    }
+
+    input {
+        margin: 5px;
+        border: 0.5px solid lightgrey !important;
+    }
+</style>
+
+<script>
+function alert(type) {
+    clearAlert()
+    let data = document.getElementById("text");
+    let alert = document.getElementById("alert");
+
+    type = "alert-" + type;
+
+    alert.style.visibility = "visible";
+    alert.classList.add(type);
+
+    alert.innerHTML = data.value;
+}
+
+function clearAlert() {
+    let alert = document.getElementById("alert");
+    alert.classList.remove("alert-primary");
+    alert.classList.remove("alert-secondary");
+    alert.classList.remove("alert-success");
+    alert.classList.remove("alert-danger");
+    alert.classList.remove("alert-warning");
+    alert.classList.remove("alert-info");
+    alert.classList.remove("alert-light");
+    alert.classList.remove("alert-dark");
+}
+</script>
+</head>
+<body class="bg-light">
+
+    <form>
+        Message
+        <textarea id="text">Text for demo</textarea> 
+        <div class="alert" id="alert" role="alert">
+            A simple  alert — check it out!
+        </div>
+        <br>
+
+        <input type="button" value="Primary Alert" onclick="alert('primary')" class="btn btn-primary">
+        <input type="button" value="Secondary Alert" onclick="alert('secondary')" class="btn btn-secondary">
+        <input type="button" value="Success Alert" onclick="alert('success')" class="btn btn-success">
+        <input type="button" value="Danger Alert" onclick="alert('danger')" class="btn btn-danger">
+        <br>
+        <input type="button" value="Warning Alert" onclick="alert('warning')" class="btn btn-warning">
+        <input type="button" value="Info Alert" onclick="alert('info')" class="btn btn-info">
+        <input type="button" value="Light Alert" onclick="alert('light')" class="btn btn-light">
+        <input type="button" value="Dark Alert" onclick="alert('dark')" class="btn btn-dark">
+    </form>
+    <br>
+
+
+
+</body>
+</html>
